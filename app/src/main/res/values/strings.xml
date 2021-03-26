@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">CityReport</string>
+    <string name="app_name">City Report</string>
+    <string name="add_nota_title">Adicionar Nota</string>
+    <string name="empty_not_saved">Nota não inserida devido a estar vazia! </string>
+    <string name="insertNoteName">Insira o nome da Nota</string>
+    <string name="insertdescription">Insira a descrição</string>
+    <string name="btn_save_note">Guardar</string>
 </resources>

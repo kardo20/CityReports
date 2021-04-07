@@ -20,18 +20,18 @@ import com.example.cityreport.viewModel.NotaViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NotasAdapter.OnItemClickListener {
 
     private lateinit var notaViewModel: NotaViewModel
     private val newWordActivityRequestCode = 1
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // recycler view
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = NotasAdapter(this)
+        val adapter = NotasAdapter(this, this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -51,9 +51,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onItemClick(nota: Nota) {
+        Toast.makeText(this, "${nota.id} - ${nota.nome} --> Clicada", Toast.LENGTH_SHORT).show()
+        val edit_nota_activity = Intent(this@MainActivity, EditNota::class.java)
+
+        edit_nota_activity.putExtra("nome", "${nota.nome}")
+        edit_nota_activity.putExtra("descricao", "${nota.descricao}")
+        edit_nota_activity.putExtra("id", nota.id)
+
+        startActivityForResult(edit_nota_activity, 2)
+
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        //ADD NOTA
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             val new_nome = data?.getStringExtra(AddNota.EXTRA_REPLY_NOTENAME)
             val new_descricao = data?.getStringExtra(AddNota.EXTRA_REPLY_DESCRICAO)
@@ -63,11 +76,31 @@ class MainActivity : AppCompatActivity() {
                 notaViewModel.insert(nota)
             }
 
-        } else {
+        } else if(requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_CANCELED){
             Toast.makeText(
                 applicationContext,
                 R.string.empty_not_saved,
                 Toast.LENGTH_LONG).show()
+        }
+        // ----------------------------""--------------------------------
+
+        //Edit Nota
+        if(requestCode == 2 && resultCode == Activity.RESULT_OK){
+            val edited_nome = data?.getStringExtra(EditNota.EXTRA_REPLY_NEWNOTENAME)
+            val edited_descricao = data?.getStringExtra(EditNota.EXTRA_REPLY_NEWDESCRICAO)
+            val id = data?.getIntExtra(EditNota.EXTRA_REPLY_ID, 0)
+
+            if(id!=0 && id!=null && edited_nome!=null && edited_descricao!=null){
+                notaViewModel.updateNota(id,edited_nome,edited_descricao)
+
+                Toast.makeText(this, "Alteração efetuada com secesso!}", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(this, "Erro na alteração de dados da nota!", Toast.LENGTH_SHORT).show()
+            }
+        }
+        else if(requestCode == 2 && resultCode == Activity.RESULT_CANCELED){
+            Toast.makeText(applicationContext, "Nenhum campo foi alterado!", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -5,4 +5,8 @@
     <string name="insertNoteName">Insira o nome da Nota</string>
     <string name="insertdescription">Insira a descrição</string>
     <string name="btn_save_note">Guardar</string>
+    <string name="edit_note_title">Editar Nota</string>
+    <string name="save_edit_note">Guardar</string>
+    <string name="clean_edit_note">Limpar</string>
+    <string name="delete_note">Eliminar Nota</string>
 </resources>

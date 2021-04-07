@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CityReport">
         <activity android:name=".AddNota" />
+        <activity android:name=".EditNota" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

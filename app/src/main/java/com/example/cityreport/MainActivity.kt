@@ -89,11 +89,18 @@ class MainActivity : AppCompatActivity(), NotasAdapter.OnItemClickListener {
             val edited_nome = data?.getStringExtra(EditNota.EXTRA_REPLY_NEWNOTENAME)
             val edited_descricao = data?.getStringExtra(EditNota.EXTRA_REPLY_NEWDESCRICAO)
             val id = data?.getIntExtra(EditNota.EXTRA_REPLY_ID, 0)
+            val codigo_apagar = data?.getIntExtra(EditNota.EXTRA_REPLY_COD_APAGAR, 0)
 
+            //Editar campos da Nota
             if(id!=0 && id!=null && edited_nome!=null && edited_descricao!=null){
                 notaViewModel.updateNota(id,edited_nome,edited_descricao)
 
                 Toast.makeText(this, "Alteração efetuada com secesso!}", Toast.LENGTH_SHORT).show()
+            }
+            //Eliminar a Nota
+            else if(id!=0 && id!=null && codigo_apagar == 20){
+                notaViewModel.deleteByID(id)
+                Toast.makeText(this, "Nota com o ID=${id} apagada com sucesso!", Toast.LENGTH_SHORT).show()
             }
             else{
                 Toast.makeText(this, "Erro na alteração de dados da nota!", Toast.LENGTH_SHORT).show()

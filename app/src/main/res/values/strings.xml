@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">City Report</string>
+    <string name="sim">Sim</string>
+    <string name="cancelar">Cancelar</string>
     <string name="add_nota_title">Adicionar Nota</string>
     <string name="empty_not_saved">Nota não inserida devido a estar vazia! </string>
     <string name="insertNoteName">Insira o nome da Nota</string>
@@ -9,4 +11,5 @@
     <string name="save_edit_note">Guardar</string>
     <string name="clean_edit_note">Limpar</string>
     <string name="delete_note">Eliminar Nota</string>
+    <string name="Titulo_Dialogo">Tem a certeza que deseja apagar a seginte nota?</string>
 </resources>

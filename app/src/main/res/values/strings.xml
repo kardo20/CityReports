@@ -12,4 +12,16 @@
     <string name="clean_edit_note">Limpar</string>
     <string name="delete_note">Eliminar Nota</string>
     <string name="Titulo_Dialogo">Tem a certeza que deseja apagar a seginte nota?</string>
+    <string name="entrar">Entrar</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="add_report">Adicionar Report</string>
+    <string name="endereco">Introduza o endereço da rua</string>
+    <string name="descricao">Introduza a descrição da situação encontrada</string>
+    <string name="lat" translatable="false">Latitude:</string>
+    <string name="lng" translatable="false">Longitude:</string>
+    <string name="data">Data:</string>
+    <string name="tp_report">Tipo de Report: </string>
+    <string name="notas">Notas</string>
+    <string name="localizacao">Localização</string>
+    <string name="cityReport">City Report</string>
 </resources>

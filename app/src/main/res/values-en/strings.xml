@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">City Report</string>
+    <string name="sim">Yes</string>
+    <string name="cancelar">Cancel</string>
+    <string name="add_nota_title">Add new Note</string>
+    <string name="empty_not_saved">Not Inserted, because its empty</string>
+    <string name="insertNoteName">Note Name</string>
+    <string name="insertdescription">Note Description</string>
+    <string name="btn_save_note">Save</string>
+    <string name="edit_note_title">Edit Note</string>
+    <string name="save_edit_note">Save</string>
+    <string name="clean_edit_note">Clean</string>
+    <string name="delete_note">Delete Note</string>
+    <string name="Titulo_Dialogo">Are you sure you want to delete the note?</string>
+    <string name="entrar">Enter</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="add_report">Add Report</string>
+    <string name="endereco">Insert the adress</string>
+    <string name="descricao">Insert description of report</string>
+    <string name="data">"Date: "</string>
+    <string name="tp_report">"Report Type: "</string>
+    <string name="notas">Notes</string>
+    <string name="localizacao">Location</string>
+</resources>

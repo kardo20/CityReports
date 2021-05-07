@@ -20,9 +20,8 @@ interface EndPoints {
     fun gettiposReport(): Call<List<tiposReport>>
 
     @Multipart
-    @POST("api/insere_report")
+    @POST("insere_report")
     fun report(
-
             @Part("id_utilizador") id_utilizador: RequestBody,
             @Part("id_cidade") id_cidade: RequestBody,
             @Part("endereco") endereco: RequestBody,

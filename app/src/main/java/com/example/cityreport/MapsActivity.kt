@@ -1,12 +1,16 @@
 package com.example.cityreport
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
@@ -121,6 +125,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     startActivity(intent)
                 }
             }
+        }
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.logout, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.logout -> {
+                    val intent = Intent(this@MapsActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finishAffinity()
+
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
 
     }

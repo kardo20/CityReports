@@ -111,7 +111,6 @@ class AddReport: AppCompatActivity() , AdapterView.OnItemSelectedListener{
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var items:String = parent?.getItemAtPosition(position) as String
         Toast.makeText(applicationContext, "$items", Toast.LENGTH_SHORT).show()
-        tipo_selected = items
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -200,12 +199,12 @@ class AddReport: AppCompatActivity() , AdapterView.OnItemSelectedListener{
             val imgFileRequest: RequestBody = RequestBody.create(MediaType.parse("image/*"), imageFile)
             val foto: MultipartBody.Part = MultipartBody.Part.createFormData("imagem", imageFile.name, imgFileRequest)
 
-            var idteste :  String = "1"
-            var idcidteste :  String = "1"
-            var idtestetipo : String = "1"
+           var iduserteste: String = "1"
+            var idtestetipo: String = "2"
+            var idcidadetest: String = "1"
 
-            val id_utilizador: RequestBody = RequestBody.create(MediaType.parse("text/plain"), idteste)
-            val id_cidade: RequestBody = RequestBody.create(MediaType.parse("text/plain"), idcidteste)
+            val id_utilizador: RequestBody = RequestBody.create(MediaType.parse("text/plain"), iduserteste)
+            val id_cidade: RequestBody = RequestBody.create(MediaType.parse("text/plain"), idcidadetest)
             val endereco: RequestBody = RequestBody.create(MediaType.parse("text/plain"), enderecoEdit.text.toString())
             val descricao: RequestBody = RequestBody.create(MediaType.parse("text/plain"), descricaoEdit.text.toString())
             val latitude: RequestBody = RequestBody.create(MediaType.parse("text/plain"), lat.toString())
